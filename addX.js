@@ -1,13 +1,37 @@
+// alternate output depending on player
+let player = 1;
+const altSymbol = (player) => {
+    if (player === 1){
+        console.log('player 1');
+        return 'X';
+    } else if (player === 2){
+        console.log('player 2');
+        return 'O';
+    } else {
+        console.log("Error with determining player number");
+    }
+}
 
-// add X to div box when clicked
+// change player function
+const changePlayer = (num) => {
+    if (num === 1){
+        console.log('changing to player 2');
+        player++;
+    } else if (num === 2){
+        console.log('changing to player 3');
+        player--;
+    }
+}
+
+// functions to add X to div box when clicked
 
     // boxTopLeft addTopLeft
         // locate div section
         const boxTopLeft = document.querySelector("#top-left");
         // create function that adds a 'X' inner text to div
         const addTopLeft = () => {
-            console.log('clicked');
-            boxTopLeft.innerText = 'X';
+            boxTopLeft.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxTopLeft.addEventListener('click', addTopLeft);
@@ -17,8 +41,8 @@
         const boxTopMid = document.querySelector("#top-mid");
         // create function that adds a 'X' inner text to div
         const addTopMid = () => {
-            console.log('clicked');
-            boxTopMid.innerText = 'X';
+            boxTopMid.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxTopMid.addEventListener('click', addTopMid);
@@ -28,8 +52,8 @@
         const boxTopRight = document.querySelector("#top-right");
         // create function that adds a 'X' inner text to div
         const addTopRight = () => {
-            console.log('clicked');
-            boxTopRight.innerText = 'X';
+            boxTopRight.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxTopRight.addEventListener('click', addTopRight);
@@ -39,8 +63,8 @@
         const boxMidLeft = document.querySelector("#mid-left");
         // create function that adds a 'X' inner text to div
         const addMidLeft = () => {
-            console.log('clicked');
-            boxMidLeft.innerText = 'X';
+            boxMidLeft.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxMidLeft.addEventListener('click', addMidLeft);
@@ -50,8 +74,8 @@
         const boxMidMid = document.querySelector("#mid-mid");
         // create function that adds a 'X' inner text to div
         const addMidMid = () => {
-            console.log('clicked');
-            boxMidMid.innerText = 'X';
+            boxMidMid.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxMidMid.addEventListener('click', addMidMid);
@@ -61,8 +85,8 @@
         const boxMidRight = document.querySelector("#mid-right");
         // create function that adds a 'X' inner text to div
         const addMidRight = () => {
-            console.log('clicked');
-            boxMidRight.innerText = 'X';
+            boxMidRight.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxMidRight.addEventListener('click', addMidRight);
@@ -72,8 +96,8 @@
         const boxBottomLeft = document.querySelector("#bottom-left");
         // create function that adds a 'X' inner text to div
         const addBottomLeft = () => {
-            console.log('clicked');
-            boxBottomLeft.innerText = 'X';
+            boxBottomLeft.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxBottomLeft.addEventListener('click', addBottomLeft);
@@ -83,8 +107,8 @@
         const boxBottomMid = document.querySelector("#bottom-mid");
         // create function that adds a 'X' inner text to div
         const addBottomMid = () => {
-            console.log('clicked');
-            boxBottomMid.innerText = 'X';
+            boxBottomMid.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxBottomMid.addEventListener('click', addBottomMid);
@@ -94,8 +118,8 @@
         const boxBottomRight = document.querySelector("#bottom-right");
         // create function that adds a 'X' inner text to div
         const addBottomRight = () => {
-            console.log('clicked');
-            boxBottomRight.innerText = 'X';
+            boxBottomRight.innerText = altSymbol(player);
+            changePlayer(player);
         }
         // create event listener for clicking on div -> run add x function
         boxBottomRight.addEventListener('click', addBottomRight);
