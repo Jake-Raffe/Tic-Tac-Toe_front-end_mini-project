@@ -110,15 +110,22 @@
    
 }
 
-.fa-dolphin{
+/* .fa-dolphin{
     color: aquamarine;
-}
+} */
 
 .icon-display{
     display: flex;
     font-family: 'Permanent Marker', cursive;
-    color: rgb(161, 131, 235);
     font-size: 50px;
     justify-content: center;
     align-items: center;
+}
+
+.purple {
+    color: rgb(161, 131, 235);
+}
+
+.blue {
+    color: rgb(141, 205, 244);
 }

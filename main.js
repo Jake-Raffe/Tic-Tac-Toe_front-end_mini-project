@@ -24,19 +24,19 @@ const player1 = new Player('Player 1', "X");
 const player2 = new Player('Player 2', "O");
 
 
-document.getElementsByClassName('icon-display').onclick = changeColor;
-function changeColor(i) {
+// document.getElementsByClassName('icon-display').onclick = changeColor;
+// function changeColor(i) {
    
-    // if(i/2==0){
-    document.getElementsByClassName('icon-display')[i].style.color = 'rgb(141, 205, 244)';
-        return false;
+//     // if(i/2==0){
+//     document.getElementsByClassName('icon-display')[i].style.color = 'rgb(141, 205, 244)';
+//         return false;
 
     // }else{
     //     document.getElementsByClassName('icon-display')[i].style.color = 'rgb(141, 205, 244)';
     //     // return false;
     // }
 
-    }
+    // }
 
 
 
@@ -64,15 +64,17 @@ const altSymbol = (player) => {
 }
 
 
-let i = 0;
+
+
+// let i = 0;
 // change player function
 const changePlayer = (player) => {
     console.log(turnCounter);
     
     if (player === player1){
         currentPlayer = player2;
-        changeColor(i);  
-        i=i+2;
+        // changeColor(i);  
+        // i=i+2;
     } else if (player === player2){
         currentPlayer = player1;
         // changeColor(i);
@@ -97,6 +99,10 @@ const checkGameWon = () => {
     
 }
 
+
+
+
+
 // functions to add X to div box when clicked
 
     // boxTopLeft addTopLeft
@@ -107,6 +113,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxTopLeft)){
             ++turnCounter;
+            if(currentPlayer.name === 'Player 1') {
+                boxTopLeft.classList.add('blue');
+            } else if (currentPlayer.name === 'Player 2'){
+                boxTopLeft.classList.add('purple');
+            }
             boxTopLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -126,6 +137,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxTopMid)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxTopMid.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxTopMid.classList.add('purple');
+                }
             boxTopMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -145,6 +161,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxTopRight)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxTopRight.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxTopRight.classList.add('purple');
+                }
             boxTopRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -163,6 +184,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxMidLeft)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxMidLeft.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxMidLeft.classList.add('purple');
+                }
             boxMidLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -181,6 +207,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxMidMid)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxMidMid.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxMidMid.classList.add('purple');
+                }
             boxMidMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -198,6 +229,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxMidRight)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxMidRight.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxMidRight.classList.add('purple');
+                }
             boxMidRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -216,6 +252,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxBottomLeft)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxBottomLeft.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxBottomLeft.classList.add('purple');
+                }
             boxBottomLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -234,6 +275,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxBottomMid)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxBottomMid.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxBottomMid.classList.add('purple');
+                }
             boxBottomMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -252,6 +298,11 @@ const checkGameWon = () => {
             if (gameOver === false){
             if (checkBoxEmpty(boxBottomRight)){
                 turnCounter++;
+                if(currentPlayer.name === 'Player 1') {
+                    boxBottomRight.classList.add('blue');
+                } else if (currentPlayer.name === 'Player 2'){
+                    boxBottomRight.classList.add('purple');
+                }
             boxBottomRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -286,9 +337,21 @@ const checkGameWon = () => {
             boxBottomLeft.innerText = '';
             boxBottomMid.innerText = '';
             boxBottomRight.innerText = '';
+            
+            boxTopLeft.classList.remove('blue', 'purple')
+            boxTopMid.classList.remove('blue', 'purple')
+            boxTopRight.classList.remove('blue', 'purple')
+            boxMidLeft.classList.remove('blue', 'purple')
+            boxMidMid.classList.remove('blue', 'purple')
+            boxMidRight.classList.remove('blue', 'purple')
+            boxBottomRight.classList.remove('blue', 'purple')
+            boxBottomLeft.classList.remove('blue', 'purple')
+            boxBottomMid.classList.remove('blue', 'purple')
+
+    
             gameOver = false;
             turnCounter = 0;
-            i=0;
+            changePlayer(currentPlayer);
         }
         // create event listener for clicking on reset-button -> run clearDivs function
         resetButton.addEventListener('click', clearDivs);
