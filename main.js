@@ -10,6 +10,8 @@ const Player = function(name, icon){
 // turn counter
 let turnCounter = 0;
 
+// has game ended?
+let gameOver = false;
 
 // create new player object
 const player1 = new Player('Player 1', "X");
@@ -45,6 +47,7 @@ const checkGameWon = () => {
         // wait for icon to be added to grid before alert message
         changePlayer(currentPlayer);
         setTimeout(function(){ alert (currentPlayer.name + ' has won!') }, 50);
+        gameOver = true;
     } else if (gameDraw()) {
         // if all tiles filled and no winner, say it's a draw
         setTimeout(function(){ alert ("It's a draw!")}, 50);
@@ -59,6 +62,7 @@ const checkGameWon = () => {
         const boxTopLeft = document.querySelector("#top-left");
         // create function that adds a 'X' inner text to div
         function addTopLeft() {
+            if (gameOver === false){
             if (checkBoxEmpty(boxTopLeft)){
             ++turnCounter;
             boxTopLeft.innerText = altSymbol(currentPlayer);
@@ -66,6 +70,7 @@ const checkGameWon = () => {
             changePlayer(currentPlayer);
             }
         }
+    }
         // create event listener for clicking on div -> run add x function
         boxTopLeft.addEventListener('click', addTopLeft);
 
@@ -74,12 +79,13 @@ const checkGameWon = () => {
         const boxTopMid = document.querySelector("#top-mid");
         // create function that adds a 'X' inner text to div
         const addTopMid = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxTopMid)){
                 turnCounter++;
             boxTopMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxTopMid.addEventListener('click', addTopMid);
@@ -89,12 +95,13 @@ const checkGameWon = () => {
         const boxTopRight = document.querySelector("#top-right");
         // create function that adds a 'X' inner text to div
         const addTopRight = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxTopRight)){
                 turnCounter++;
             boxTopRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxTopRight.addEventListener('click', addTopRight);
@@ -104,12 +111,13 @@ const checkGameWon = () => {
         const boxMidLeft = document.querySelector("#mid-left");
         // create function that adds a 'X' inner text to div
         const addMidLeft = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxMidLeft)){
                 turnCounter++;
             boxMidLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxMidLeft.addEventListener('click', addMidLeft);
@@ -119,12 +127,13 @@ const checkGameWon = () => {
         const boxMidMid = document.querySelector("#mid-mid");
         // create function that adds a 'X' inner text to div
         const addMidMid = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxMidMid)){
                 turnCounter++;
             boxMidMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-        }}
+        }}}
         // create event listener for clicking on div -> run add x function
         boxMidMid.addEventListener('click', addMidMid);
 
@@ -133,12 +142,13 @@ const checkGameWon = () => {
         const boxMidRight = document.querySelector("#mid-right");
         // create function that adds a 'X' inner text to div
         const addMidRight = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxMidRight)){
                 turnCounter++;
             boxMidRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxMidRight.addEventListener('click', addMidRight);
@@ -148,12 +158,13 @@ const checkGameWon = () => {
         const boxBottomLeft = document.querySelector("#bottom-left");
         // create function that adds a 'X' inner text to div
         const addBottomLeft = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxBottomLeft)){
                 turnCounter++;
             boxBottomLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxBottomLeft.addEventListener('click', addBottomLeft);
@@ -163,12 +174,13 @@ const checkGameWon = () => {
         const boxBottomMid = document.querySelector("#bottom-mid");
         // create function that adds a 'X' inner text to div
         const addBottomMid = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxBottomMid)){
                 turnCounter++;
             boxBottomMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxBottomMid.addEventListener('click', addBottomMid);
@@ -178,12 +190,13 @@ const checkGameWon = () => {
         const boxBottomRight = document.querySelector("#bottom-right");
         // create function that adds a 'X' inner text to div
         const addBottomRight = () => {
+            if (gameOver === false){
             if (checkBoxEmpty(boxBottomRight)){
                 turnCounter++;
             boxBottomRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
-            }
+            }}
         }
         // create event listener for clicking on div -> run add x function
         boxBottomRight.addEventListener('click', addBottomRight);
@@ -212,6 +225,8 @@ const checkGameWon = () => {
             boxBottomLeft.innerText = '';
             boxBottomMid.innerText = '';
             boxBottomRight.innerText = '';
+            gameOver = false;
+            turnCounter = 0;
         }
         // create event listener for clicking on reset-button -> run clearDivs function
         resetButton.addEventListener('click', clearDivs);
