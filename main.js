@@ -28,7 +28,7 @@ document.getElementsByClassName('icon-display').onclick = changeColor;
 function changeColor(i) {
    
     // if(i/2==0){
-        document.getElementsByClassName('icon-display')[i].style.color = 'rgb(161, 131, 235)';
+    document.getElementsByClassName('icon-display')[i].style.color = 'rgb(141, 205, 244)';
         return false;
 
     // }else{
