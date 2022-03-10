@@ -7,6 +7,12 @@ const Player = function(name, icon){
     this.icon = icon
 }
 
+// const playerIcon = document.createElement("i");
+// playerIcon.classList.add("fa-thin");
+// playerIcon.classList.add("fa-dolphin");
+// // playerIcon.classList.add("fa-elephant");
+// boxTopLeft.appendChild(playerIcon)
+
 // turn counter
 let turnCounter = 0;
 
@@ -16,6 +22,14 @@ let gameOver = false;
 // create new player object
 const player1 = new Player('Player 1', "X");
 const player2 = new Player('Player 2', "O");
+
+
+// document.getElementsByClassName('icon-display').onclick = changeColor;
+// function changeColor() {
+//     document.getElementsByClassName('icon-display').style.color = 'rgb(161, 131, 235)';
+//     return false;
+// }
+
 
 // current player
 let currentPlayer = player1
@@ -36,6 +50,7 @@ const changePlayer = (player) => {
     console.log(turnCounter);
     if (player === player1){
         currentPlayer = player2;
+        // changeColor()
     } else if (player === player2){
         currentPlayer = player1;
     }
@@ -85,6 +100,7 @@ const checkGameWon = () => {
             boxTopMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+
             }}
         }
         // create event listener for clicking on div -> run add x function
