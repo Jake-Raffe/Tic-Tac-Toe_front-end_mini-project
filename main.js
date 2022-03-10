@@ -24,12 +24,30 @@ const player1 = new Player('Player 1', "X");
 const player2 = new Player('Player 2', "O");
 
 
-// document.getElementsByClassName('icon-display').onclick = changeColor;
-// function changeColor() {
-//     document.getElementsByClassName('icon-display').style.color = 'rgb(161, 131, 235)';
-//     return false;
-// }
+document.getElementsByClassName('icon-display').onclick = changeColor;
+function changeColor(i) {
+   
+    // if(i/2==0){
+        document.getElementsByClassName('icon-display')[i].style.color = 'rgb(161, 131, 235)';
+        return false;
 
+    // }else{
+    //     document.getElementsByClassName('icon-display')[i].style.color = 'rgb(141, 205, 244)';
+    //     // return false;
+    // }
+
+    }
+
+
+
+
+
+// document.getElementsByClassName('icon-display').onclick = changeColor2;
+// function changeColor2() {
+//     document.getElementsByClassName('icon-display')[0].style.color = 'rgb(141, 205, 244)';
+//     return false;
+
+// }    
 
 // current player
 let currentPlayer = player1
@@ -45,14 +63,23 @@ const altSymbol = (player) => {
     }
 }
 
+
+let i = 0;
 // change player function
 const changePlayer = (player) => {
     console.log(turnCounter);
+    
     if (player === player1){
         currentPlayer = player2;
-        // changeColor()
+        changeColor(i);  
+        i=i+2;
     } else if (player === player2){
         currentPlayer = player1;
+        // changeColor(i);
+        // i++;
+        
+        
+       
     }
 }
 
@@ -83,6 +110,8 @@ const checkGameWon = () => {
             boxTopLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // ++i;
             }
         }
     }
@@ -100,6 +129,8 @@ const checkGameWon = () => {
             boxTopMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = ++i;
 
             }}
         }
@@ -117,6 +148,8 @@ const checkGameWon = () => {
             boxTopRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
             }}
         }
         // create event listener for clicking on div -> run add x function
@@ -133,6 +166,8 @@ const checkGameWon = () => {
             boxMidLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
             }}
         }
         // create event listener for clicking on div -> run add x function
@@ -149,6 +184,8 @@ const checkGameWon = () => {
             boxMidMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
         }}}
         // create event listener for clicking on div -> run add x function
         boxMidMid.addEventListener('click', addMidMid);
@@ -164,6 +201,8 @@ const checkGameWon = () => {
             boxMidRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
             }}
         }
         // create event listener for clicking on div -> run add x function
@@ -180,6 +219,8 @@ const checkGameWon = () => {
             boxBottomLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
             }}
         }
         // create event listener for clicking on div -> run add x function
@@ -196,6 +237,8 @@ const checkGameWon = () => {
             boxBottomMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
             }}
         }
         // create event listener for clicking on div -> run add x function
@@ -212,6 +255,8 @@ const checkGameWon = () => {
             boxBottomRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
+            // changeColor(i);
+            // i = i++;
             }}
         }
         // create event listener for clicking on div -> run add x function
