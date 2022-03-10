@@ -123,3 +123,23 @@ const changePlayer = (num) => {
         }
         // create event listener for clicking on div -> run add x function
         boxBottomRight.addEventListener('click', addBottomRight);
+
+
+// Clear Grid
+
+        // locate reset button section
+        const resetButton = document.querySelector("#reset-button");
+        // create function that changes all inner text of divs to ' '
+        const clearDivs = () => {
+            boxTopLeft.innerText = '';
+            boxTopMid.innerText = '';
+            boxTopRight.innerText = '';
+            boxMidLeft.innerText = '';
+            boxMidMid.innerText = '';
+            boxMidRight.innerText = '';
+            boxBottomLeft.innerText = '';
+            boxBottomMid.innerText = '';
+            boxBottomRight.innerText = '';
+        }
+        // create event listener for clicking on reset-button -> run clearDivs function
+        resetButton.addEventListener('click', clearDivs);
