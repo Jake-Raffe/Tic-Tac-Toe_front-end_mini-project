@@ -288,6 +288,7 @@ const checkGameWon = () => {
             boxBottomRight.innerText = '';
             gameOver = false;
             turnCounter = 0;
+            i=0;
         }
         // create event listener for clicking on reset-button -> run clearDivs function
         resetButton.addEventListener('click', clearDivs);
