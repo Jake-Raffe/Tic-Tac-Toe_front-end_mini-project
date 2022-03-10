@@ -7,6 +7,8 @@ const Player = function(name, icon){
     this.icon = icon
 }
 
+// turn counter
+let turnCounter = 0;
 
 
 // create new player object
@@ -29,6 +31,7 @@ const altSymbol = (player) => {
 
 // change player function
 const changePlayer = (player) => {
+    console.log(turnCounter);
     if (player === player1){
         currentPlayer = player2;
     } else if (player === player2){
@@ -41,7 +44,10 @@ const checkGameWon = () => {
     if (gameWon(currentPlayer)){
         // wait for icon to be added to grid before alert message
         changePlayer(currentPlayer);
-        setTimeout(function(){ alert (currentPlayer.name + ' has won!') }, 50)
+        setTimeout(function(){ alert (currentPlayer.name + ' has won!') }, 50);
+    } else if (gameDraw()) {
+        // if all tiles filled and no winner, say it's a draw
+        setTimeout(function(){ alert ("It's a draw!")}, 50);
     }
     
 }
@@ -54,6 +60,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         function addTopLeft() {
             if (checkBoxEmpty(boxTopLeft)){
+            ++turnCounter;
             boxTopLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -68,6 +75,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addTopMid = () => {
             if (checkBoxEmpty(boxTopMid)){
+                turnCounter++;
             boxTopMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -82,6 +90,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addTopRight = () => {
             if (checkBoxEmpty(boxTopRight)){
+                turnCounter++;
             boxTopRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -96,6 +105,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addMidLeft = () => {
             if (checkBoxEmpty(boxMidLeft)){
+                turnCounter++;
             boxMidLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -110,6 +120,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addMidMid = () => {
             if (checkBoxEmpty(boxMidMid)){
+                turnCounter++;
             boxMidMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -123,6 +134,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addMidRight = () => {
             if (checkBoxEmpty(boxMidRight)){
+                turnCounter++;
             boxMidRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -137,6 +149,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addBottomLeft = () => {
             if (checkBoxEmpty(boxBottomLeft)){
+                turnCounter++;
             boxBottomLeft.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -151,6 +164,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addBottomMid = () => {
             if (checkBoxEmpty(boxBottomMid)){
+                turnCounter++;
             boxBottomMid.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -165,6 +179,7 @@ const checkGameWon = () => {
         // create function that adds a 'X' inner text to div
         const addBottomRight = () => {
             if (checkBoxEmpty(boxBottomRight)){
+                turnCounter++;
             boxBottomRight.innerText = altSymbol(currentPlayer);
             checkGameWon();
             changePlayer(currentPlayer);
@@ -240,4 +255,14 @@ const checkGameWon = () => {
                 return false;
             }
         }
+
+// check if game over / all tiles are filled
+const gameDraw = () => {
+    if (turnCounter === 9){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
