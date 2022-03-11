@@ -292,6 +292,7 @@ const gameDraw = () => {
         player2.score = 0;
         updateScore(player1);
         updateScore(player2);
+        currentPlayer = player1;
     }
     // create event listener for button -> reset()
     resetScoreButton.addEventListener('click', resetScores);
