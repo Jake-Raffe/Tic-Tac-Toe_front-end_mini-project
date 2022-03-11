@@ -2,9 +2,10 @@
 // const { Player } = require("./player");
 
 // Player constructor
-const Player = function(name, icon){
+const Player = function(name, icon, score){
     this.name = name,
-    this.icon = icon
+    this.icon = icon,
+    this.score = 0
 }
 
 // turn counter
@@ -29,6 +30,16 @@ const changePlayer = (player) => {
     } else if (player === player2){
         currentPlayer = player1;
     }
+}
+
+// update score function
+const updateScore = (player) => {
+    if (player === player1){
+        document.querySelector("#player1Score").innerText = ("Score: " + player1.score);
+    } else if (player === player2){
+        document.querySelector("#player2Score").innerText = ("Score: " + player2.score);
+    }
+    
 }
 
 // alternate output depending on player
@@ -110,7 +121,7 @@ const checkGameWon = () => {
     if (gameWon(currentPlayer)){
         // wait for icon to be added to grid before alert message
         changePlayer(currentPlayer);
-        setTimeout(function(){ alert (currentPlayer.name + ' has won!') }, 50);
+        setTimeout(function(){ alert (currentPlayer.name + ' has won!'); currentPlayer.score +=1; updateScore(currentPlayer) }, 50);
         gameOver = true;
     } else if (gameDraw()) {
         // if all tiles filled and no winner, say it's a draw
