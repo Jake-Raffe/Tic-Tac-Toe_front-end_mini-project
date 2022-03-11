@@ -16,7 +16,8 @@ let gameOver = false;
 
 // create new player object
 const player1 = new Player('Player 1', "X");
-const player2 = new Player('Player 2', "O");
+//const player2 = new Player('Player 2', "O");
+const player2 = new Player('Super AI', 'O');
 
 // current player
 let currentPlayer = player1
@@ -24,13 +25,65 @@ let currentPlayer = player1
 // change player function
 const changePlayer = (player) => {
     console.log(turnCounter);
-    
-    if (player === player1){
+    if (player === player1 && player2.name === 'Super AI'){
+        currentPlayer = player2;
+        playerAITurn();
+    } else if (player === player1){
         currentPlayer = player2;
     } else if (player === player2){
         currentPlayer = player1;
     }
 }
+
+// AI FUNCTIONS:
+
+// AI player turn
+const playerAITurn = () => {
+    if (gameOver === false){
+        let isEmpty = false;
+        let chosenBox;
+        // repeat till picks box that is empty
+        while (isEmpty === false) {
+            // get random box
+            chosenBox = randomBox();
+            // check if box empty
+            isEmpty = checkBoxEmpty(chosenBox);
+        }
+        
+        // add icon to chosen box
+        chosenBox.classList.add('purple');
+        setTimeout(function(){chosenBox.innerText = altSymbol(currentPlayer); checkGameWon(); changePlayer(currentPlayer);}, 800);
+        // chosenBox.innerText = altSymbol(currentPlayer);
+        // do end turn checks
+        turnCounter++;
+    }
+      
+}
+// return random box 1-9
+const randomBox = () => {
+    const boxNum = Math.floor((Math.random() * 9)+1);
+    if (boxNum === 1){
+        return boxTopLeft;
+    } else if (boxNum === 2){
+        return boxTopMid;
+    } else if (boxNum === 3){
+        return boxTopRight;
+    } else if (boxNum === 4){
+        return boxMidLeft;
+    } else if (boxNum === 5){
+        return boxMidMid;
+    } else if (boxNum === 6){
+        return boxMidRight;
+    } else if (boxNum === 7){
+        return boxBottomLeft;
+    } else if (boxNum === 8){
+        return boxBottomMid;
+    } else if (boxNum === 9){
+        return boxBottomRight;
+    } else {console.log("problem here");}
+
+}
+
 
 // update score function
 const updateScore = (player) => {
@@ -46,7 +99,7 @@ const updateScore = (player) => {
 const altSymbol = (player) => {
     if (player.name === 'Player 1'){
         return 'X';
-    } else if (player.name === 'Player 2'){
+    } else if (player.name === 'Player 2' || player.name === 'Super AI'){
         return 'O';
     } else {
         console.log("Error with determining player number");
@@ -120,12 +173,12 @@ function findCurrentResult(event) {
 const checkGameWon = () => {
     if (gameWon(currentPlayer)){
         // wait for icon to be added to grid before alert message
-        changePlayer(currentPlayer);
-        setTimeout(function(){ alert (currentPlayer.name + ' has won!'); currentPlayer.score +=1; updateScore(currentPlayer) }, 50);
+        setTimeout(function(){ changePlayer(currentPlayer); alert (currentPlayer.name + ' has won!'); currentPlayer.score +=1; updateScore(currentPlayer) }, 50);
         gameOver = true;
     } else if (gameDraw()) {
         // if all tiles filled and no winner, say it's a draw
         setTimeout(function(){ alert ("It's a draw!")}, 50);
+        gameOver = true;
     }
     
 }
@@ -148,7 +201,7 @@ const checkGameWon = () => {
             boxBottomMid.innerText = '';
             boxBottomRight.innerText = '';
             
-// findCurrentResult(event).classList.remove('blue', 'purple')
+            // findCurrentResult(event).classList.remove('blue', 'purple')
 
             boxTopLeft.classList.remove('blue', 'purple')
             boxTopMid.classList.remove('blue', 'purple')
@@ -173,11 +226,11 @@ const checkGameWon = () => {
         function gameWon (player) {
             // top row
             if (boxTopLeft.innerText === player.icon && boxTopMid.innerText === player.icon && boxTopRight.innerText === player.icon) {
-                //alert(player.name + ' has won');
+                console.log(player.name + ' has won');
                 return true;
                 // mid row
             } else if (boxMidLeft.innerText === player.icon && boxMidMid.innerText === player.icon && boxMidRight.innerText === player.icon) {
-                // alert(player.name + ' has won');
+                console.log(player.name + ' has won');
                 return true;
                 // bottom row
             } else if (boxBottomLeft.innerText === player.icon && boxBottomMid.innerText === player.icon && boxBottomRight.innerText === player.icon) {
@@ -217,7 +270,18 @@ const gameDraw = () => {
     }
 }
 
-
+// reset scores
+    // find button
+    const resetScoreButton = document.querySelector("#reset-scores");
+    // create reset function
+    const resetScores = () => {
+        player1.score = 0;
+        player2.score = 0;
+        updateScore(player1);
+        updateScore(player2);
+    }
+    // create event listener for button -> reset()
+    resetScoreButton.addEventListener('click', resetScores);
 
 /** winning message? https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_event_target 
  $(document).ready(function(){
