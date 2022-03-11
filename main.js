@@ -18,16 +18,35 @@ const Player = function(name, icon, score){
     this.score = 0
 }
 
+// event listener for player option
+const playerChoice = document.querySelector("#person")
+const aiChoice = document.querySelector("#ai")
+
+let player2 = new Player;
+
+// create new player object
+const player1 = new Player('Player 1', "X");
+
+const createPlayer2person = () => {
+    player2.name = 'Player 2';
+    player2.icon = "O";
+}
+const createPlayer2AI = () => {
+    player2.name = 'Super AI';
+    player2.icon = 'O';
+}
+playerChoice.addEventListener('click', createPlayer2person)
+aiChoice.addEventListener('click', createPlayer2AI)
+
+
+
 // turn counter
 let turnCounter = 0;
 
 // has game ended?
 let gameOver = false;
 
-// create new player object
-const player1 = new Player('Player 1', "X");
-//const player2 = new Player('Player 2', "O");
-const player2 = new Player('Super AI', 'O');
+
 
 // current player
 let currentPlayer = player1
