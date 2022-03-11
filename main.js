@@ -42,6 +42,19 @@ const updateScore = (player) => {
     
 }
 
+// reset scores
+    // find button
+    const resetScoreButton = document.querySelector("#reset-scores");
+    // create reset function
+    const resetScores = () => {
+        player1.score = 0;
+        player2.score = 0;
+        updateScore(player1);
+        updateScore(player2);
+    }
+    // create event listener for button -> reset()
+    resetScoreButton.addEventListener('click', resetScores);
+
 // alternate output depending on player
 const altSymbol = (player) => {
     if (player.name === 'Player 1'){

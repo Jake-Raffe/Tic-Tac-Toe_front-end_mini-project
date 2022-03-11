@@ -24,13 +24,20 @@
         <section>
             <p>Lets play tic tac toe</p>
             <!-- this is the grid of the tic tac toe board-->
-            <button id="reset-button">Reset game</button>
+            <button id="reset-button">New game</button>
+            <button id="reset-scores">Reset scores</button>
         </section>
         <section id="main-screen">
+            <section id="playerContainer">
             <article id="player1">
                 <h2>Player 1</h2>
                 <h3 id="player1Score">Score: 0</h3>
             </article>
+                <article id="player2">
+                <h2>Player 2</h2>
+                <h3 id="player2Score">Score: 0</h3>
+            </article>
+            </section>
             <article id="grid-template">
                 <!-- each of the divs are a square in the grid board -->
                 <div id="top-left" class="icon-display">
@@ -69,11 +76,6 @@
                     <!-- <i class="fa-thin fa-dolphin"></i> -->
                     <!-- <i class="fa-thin fa-elephant"></i> -->
                 </div>
-            </article>
-            
-            <article id="player2">
-                <h2>Player 2</h2>
-                <h3 id="player2Score">Score: 0</h3>
             </article>
         </section>
     </main>
