@@ -11,6 +11,8 @@ function playWin() {
     audio.play();
   }
 
+  
+
 // Player constructor
 const Player = function(name, icon, score){
     this.name = name,
