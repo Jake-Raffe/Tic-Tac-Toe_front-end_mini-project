@@ -19,24 +19,21 @@ const Player = function(name, icon, score){
 }
 
 // event listener for player option
-const playerChoice = document.querySelector("#person")
-const aiChoice = document.querySelector("#ai")
-
-let player2 = new Player;
-
-// create new player object
-const player1 = new Player('Player 1', "X");
-
-const createPlayer2person = () => {
-    player2.name = 'Player 2';
-    player2.icon = "O";
-}
-const createPlayer2AI = () => {
-    player2.name = 'Super AI';
-    player2.icon = 'O';
-}
-playerChoice.addEventListener('click', createPlayer2person)
-aiChoice.addEventListener('click', createPlayer2AI)
+    const playerChoice = document.querySelector("#person")
+    const aiChoice = document.querySelector("#ai")
+// create new player objects
+    const player1 = new Player('Player 1', "X");
+    let player2 = new Player;
+// create player 2 functions
+    const createPlayer2person = () => {
+        player2.name = 'Player 2';
+        player2.icon = 'O'; }
+    const createPlayer2AI = () => {
+        player2.name = 'Super AI';
+        player2.icon = 'O'; }
+// event listeners for player 2 options
+    playerChoice.addEventListener('click', createPlayer2person)
+    aiChoice.addEventListener('click', createPlayer2AI)
 
 
 
@@ -78,12 +75,13 @@ const playerAITurn = () => {
             // check if box empty
             isEmpty = checkBoxEmpty(chosenBox);
         }
-        
         // add icon to chosen box
         chosenBox.classList.add('purple');
-        setTimeout(function(){chosenBox.innerText = altSymbol(currentPlayer); checkGameWon(); changePlayer(currentPlayer);}, 800);
-        // chosenBox.innerText = altSymbol(currentPlayer);
-        // do end turn checks
+        setTimeout(function(){
+                chosenBox.innerText = altSymbol(currentPlayer);
+                checkGameWon();
+                changePlayer(currentPlayer);
+            }, 800);
         turnCounter++;
     }
       
