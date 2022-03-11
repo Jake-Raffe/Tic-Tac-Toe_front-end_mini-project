@@ -10,22 +10,52 @@
 }
 
 h1{
-    color: aqua;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 50px;
+    color: rgb(30, 138, 220);
+    font-family: 'Acme', sans-serif;
+    font-size: 80px;
     text-align: center;
 
 
 }
 
-p{
-    color: aqua;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 20px;
+.button{
+    color: rgb(30, 138, 220);
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
     text-align: center;
 
 
 }
+
+button {
+    background: #11cdd4;
+    background-image: -webkit-linear-gradient(top, rgb(64, 159, 218), rgb(74, 150, 198));
+    background-image: -moz-linear-gradient(top, rgb(64, 159, 218), rgb(74, 150, 198));
+    background-image: -ms-linear-gradient(top, rgb(64, 159, 218), rgb(74, 150, 198));
+    background-image: -o-linear-gradient(top, rgb(64, 159, 218), rgb(74, 150, 198));
+    background-image: linear-gradient(to bottom, rgb(64, 159, 218), rgb(74, 150, 198));
+    border-radius: 3px;
+    border-style: none;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+
+  button:hover {
+    background: #30e3cb;
+    background-image: -webkit-linear-gradient(top, rgb(141, 205, 244), rgb(111, 177, 218));
+    background-image: -moz-linear-gradient(top, rgb(141, 205, 244), rgb(111, 177, 218));
+    background-image: -ms-linear-gradient(top, rgb(141, 205, 244), rgb(111, 177, 218));
+    background-image: -o-linear-gradient(top, rgb(141, 205, 244), rgb(111, 177, 218));
+    background-image: linear-gradient(to bottom, rgb(141, 205, 244), rgb(111, 177, 218));
+    text-decoration: none;
+    margin: auto;
+  }
+
+
 
 /* this is the grid 3x3 template with a black border */
 #grid-template {
@@ -48,6 +78,8 @@ p{
     width: 230px;
     height: 230px;
     align-items: center;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
 
 }
 
@@ -62,6 +94,8 @@ p{
     width: 230px;
     height: 230px;
     align-items: center;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
 }
 
 @media only screen and (min-width:800px){
