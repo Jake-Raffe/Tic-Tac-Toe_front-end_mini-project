@@ -1,6 +1,16 @@
 // import classes 
 // const { Player } = require("./player");
 
+function playWin() {
+    var audio = new Audio('./win.mp3');
+    audio.play();
+  }
+
+  function playDraw() {
+    var audio = new Audio('./fail.mp3');
+    audio.play();
+  }
+
 // Player constructor
 const Player = function(name, icon, score){
     this.name = name,
@@ -95,6 +105,7 @@ const updateScore = (player) => {
     
 }
 
+
 // alternate output depending on player
 const altSymbol = (player) => {
     if (player.name === 'Player 1'){
@@ -173,15 +184,17 @@ function findCurrentResult(event) {
 const checkGameWon = () => {
     if (gameWon(currentPlayer)){
         // wait for icon to be added to grid before alert message
-        setTimeout(function(){ changePlayer(currentPlayer); alert (currentPlayer.name + ' has won!'); currentPlayer.score +=1; updateScore(currentPlayer) }, 50);
+        playWin(); 
+        setTimeout(function(){ changePlayer(currentPlayer);alert (currentPlayer.name + ' has won!'); currentPlayer.score +=1; updateScore(currentPlayer); }, 50);
         gameOver = true;
     } else if (gameDraw()) {
         // if all tiles filled and no winner, say it's a draw
+        playDraw();
         setTimeout(function(){ alert ("It's a draw!")}, 50);
         gameOver = true;
     }
-    
 }
+
 
 
 
