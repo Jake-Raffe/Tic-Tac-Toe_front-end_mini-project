@@ -1,6 +1,16 @@
 // import classes 
 // const { Player } = require("./player");
 
+
+const input = document.querySelector("#text-field")
+
+const preview = document.querySelector("#preview")
+
+input.addEventListener("input", event => {
+
+  preview.innerText = event.target.value
+})
+
 function playWin() {
     var audio = new Audio('./win.mp3');
     audio.play();
@@ -10,6 +20,8 @@ function playWin() {
     var audio = new Audio('./fail.mp3');
     audio.play();
   }
+
+  
 
 // Player constructor
 const Player = function(name, icon, score){
@@ -201,8 +213,14 @@ function findCurrentResult(event) {
 const checkGameWon = () => {
     if (gameWon(currentPlayer)){
         // wait for icon to be added to grid before alert message
-        playWin(); 
-        setTimeout(function(){ changePlayer(currentPlayer);alert (currentPlayer.name + ' has won!'); currentPlayer.score +=1; updateScore(currentPlayer); }, 50);
+        playWin();
+        let output; 
+        if (currentPlayer === player1){
+             output = document.getElementById("preview").innerText; 
+        } else if (currentPlayer === player2){
+             output = player2.name;
+        }
+        setTimeout(function(){ changePlayer(currentPlayer);alert (output + ' has won!'); currentPlayer.score +=1 ; updateScore(currentPlayer) }, 50);
         gameOver = true;
     } else if (gameDraw()) {
         // if all tiles filled and no winner, say it's a draw
